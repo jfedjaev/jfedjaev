@@ -22,7 +22,7 @@ bio: My research interests include artificial intelligence, collaborative roboti
 
 interests:
 - Artificial Intelligence
-- Rehabilitation Robotics
+- Automotive
 - Medical Technology
 
 education:

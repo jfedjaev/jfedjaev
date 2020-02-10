@@ -18,11 +18,26 @@ date_format = "Jan 2006"
 #   Leave `date_end` empty if it's your current employer.
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 [[experience]]
-  title = "CEO"
-  company = "GenCoin"
+  title = "Venture Scout"
+  company = "VW Konnect - Group Innovation Hub TLV"
   company_url = ""
-  location = "California"
-  date_start = "2017-01-01"
+  location = "Tel Aviv, Israel"
+  date_start = "2020-01-01"
+  date_end = ""
+  description = """
+  Responsibilities include:
+  
+  * Scouting
+  * Partnering
+  * ...
+  """
+
+[[experience]]
+  title = "Product Owner"
+  company = "Volkswagen AG Commercial Vehicles"
+  company_url = ""
+  location = "Hannover, Germany"
+  date_start = "2019-01-01"
   date_end = ""
   description = """
   Responsibilities include:
@@ -33,12 +48,12 @@ date_format = "Jan 2006"
   """
 
 [[experience]]
-  title = "Professor"
-  company = "University X"
+  title = "Junior Consultant"
+  company = "Volkswagen AG Commercial Vehicles"
   company_url = ""
-  location = "California"
-  date_start = "2016-01-01"
-  date_end = "2016-12-31"
-  description = """Taught electronic engineering and researched semiconductor physics."""
+  location = "Hannover, Germany"
+  date_start = "2018-02-01"
+  date_end = "2018-11-30"
+  description = """Developing VWN Data Science Pipeline"""
 
 +++

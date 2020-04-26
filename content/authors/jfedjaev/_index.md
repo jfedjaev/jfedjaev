@@ -10,7 +10,7 @@ authors:
 superuser: true
 
 # Role/position
-role: Product Owner at Volkswagen AG
+role: Product Owner - Data & AI at Volkswagen AG
 
 # Organizations/Affiliations
 organizations:
@@ -72,9 +72,9 @@ user_groups:
 - Researchers
 - Visitors
 ---
+I'm an entrepreneurial data science enthusiast with a background in business and engineering. In my current role as a product owner at Volkswagen I am driving digital initiatives to build value-creating data products for our customers, partners, and company. 
 
-As a Product Owner, Juri Fedjaev is responsible for the development and operations of the Volkswagen Commercial Vehicles (VWCV) Data & AI Platform, processing millions of kilometers driven by Volkswagen vehicles and hundreds of terabytes of high-density data. To deliver the most value to the company, partners and customers, Juri leads the VWCV Data Strategy initiative to transform VWCV into a data-driven company. Before his time at VWCV, Juri worked at startups, in corporate venturing, and was part of the very first WARR Hyperloop Team in Munich – winning the international SpaceX hyperloop competition in 2017 in Los Angeles, CA.
 
-Juri holds a Master’s Degree in Electrical & Computer Engineering from Technical University of Munich and the French Grand École Centrale Lille. During his studies, he specialized in robotics and machine learning applications in rehabilitation robotics, publishing several articles in high-impact scientific journals. Juri holds a post-graduate MBA degree from a tri-national program at Collège des Ingénieurs (CDI) in Paris, Turin, and Munich.
+When I'm not on the job, I love going hiking, experiencing the culture of foreign countries, and composing music on my guitar, bass, and computer. I absolutely love music. 
  
 

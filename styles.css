@@ -37,11 +37,11 @@ body {
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     backdrop-filter: blur(10px);
-    width: 90%;
+    width: 60%; /* Reduced from 90% */
     max-width: 600px;
-    margin-bottom: 2rem;
+    margin: 0 auto 2rem auto; /* Center the container */
     z-index: 1;
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border for definition */
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Adjust text color for better contrast on the darker background */
@@ -129,10 +129,13 @@ footer {
     }
 }
 
+/* Media query for mobile devices */
 @media screen and (max-width: 767px) {
     .container {
-        width: 90%;
+        width: 80%; /* Increased from 60% for mobile */
         padding: 1.5rem;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     h1 {
@@ -154,5 +157,13 @@ footer {
         font-size: 1.2rem;
         width: 1.2rem;
         height: 1.2rem;
+    }
+}
+
+/* Additional media query for very small screens */
+@media screen and (max-width: 320px) {
+    .container {
+        width: 90%; /* Further increased for very small screens */
+        padding: 1rem;
     }
 }

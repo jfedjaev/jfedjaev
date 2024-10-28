@@ -222,19 +222,20 @@ footer {
 
 /* Games Grid Layout */
 .games-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    padding: 2rem;
-    max-width: 900px;
-    margin: 4rem auto;
-    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(2, calc(35vw - 1rem)); /* Two columns, each slightly less than half of 70vw */
+    gap: 2rem; /* Equal spacing both vertically and horizontally */
+    width: 70vw; /* Match section width */
+    margin: 0 auto;
+    padding: 2rem 0; /* Remove horizontal padding */
+    justify-content: center; /* Center the grid */
 }
 
 /* Game Card Styles */
-.game-card {
+.game-card, .music-card {
+    width: 100%; /* Fill grid cell */
     display: flex;
-    align-items: center;
+    flex-direction: column;
     background: linear-gradient(135deg, rgba(30, 30, 30, 0.9) 0%, rgba(50, 70, 100, 0.9) 100%);
     border-radius: 15px;
     overflow: hidden;
@@ -244,7 +245,7 @@ footer {
     padding: 1rem;
 }
 
-.game-card:hover {
+.game-card:hover, .music-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
@@ -461,4 +462,93 @@ footer {
 .back-text {
     margin-left: 0.5rem; /* Space between the icon and text */
     font-size: 1rem; /* Adjust font size as needed */
+}
+
+/* Music Grid Layout */
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(2, calc(35vw - 1rem)); /* Two columns, each slightly less than half of 70vw */
+    gap: 2rem; /* Equal spacing both vertically and horizontally */
+    width: 70vw; /* Match section width */
+    margin: 0 auto;
+    padding: 2rem 0; /* Remove horizontal padding */
+    justify-content: center; /* Center the grid */
+}
+
+/* Music Card Styles */
+.music-card {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, rgba(30, 30, 30, 0.9) 0%, rgba(50, 70, 100, 0.9) 100%);
+    border-radius: 15px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 1rem;
+}
+
+.music-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Music Info */
+.music-info {
+    padding: 0.5rem 0;
+}
+
+/* Music Description */
+.music-description {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Section Title Styles */
+.section-title {
+    font-size: 2rem;
+    color: #ffffff;
+    margin: 2rem auto 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    width: calc(70vw + 4rem); /* Match total width including grid padding */
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    display: block;
+}
+
+/* Section Description */
+.section-description {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 1rem auto 2rem;
+    width: calc(70vw + 4rem); /* Match section title width */
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+/* Grid Layout */
+.music-grid, .games-grid {
+    display: grid;
+    grid-template-columns: repeat(2, calc(35vw - 1rem)); /* Two equal columns */
+    gap: 4rem; /* Increased spacing between cards */
+    width: calc(70vw + 4rem); /* Total width matching section title */
+    margin: 0 auto;
+    padding: 2rem 0;
+    justify-content: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .music-grid, .games-grid {
+        grid-template-columns: 70vw;
+        width: 70vw;
+        gap: 2rem;
+    }
+    
+    .section-title,
+    .section-description {
+        width: 70vw;
+    }
 }

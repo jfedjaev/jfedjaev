@@ -10,15 +10,20 @@ html, body {
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     color: #ffffff;
-    background-color: #000; /* Ensure the body background is black */
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #000;
 }
 
 #starfield {
@@ -37,11 +42,12 @@ body {
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     backdrop-filter: blur(10px);
-    width: 60%; /* Reduced from 90% */
+    width: 60%;
     max-width: 600px;
-    margin: 0 auto 2rem auto; /* Center the container */
+    margin: 2rem auto;
     z-index: 1;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
 }
 
 /* Adjust text color for better contrast on the darker background */
@@ -131,11 +137,14 @@ footer {
 
 /* Media query for mobile devices */
 @media screen and (max-width: 767px) {
+    body {
+        padding: 1rem 0;
+    }
+    
     .container {
-        width: 80%; /* Increased from 60% for mobile */
+        width: 80%;
         padding: 1.5rem;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 2rem auto;
     }
 
     h1 {
@@ -166,4 +175,290 @@ footer {
         width: 90%; /* Further increased for very small screens */
         padding: 1rem;
     }
+}
+
+/* Playground specific styles */
+.playground-body {
+    /* remove cursor: none; if it exists */
+}
+
+.back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    opacity: 0.3; /* Changed from 0 to always show faintly */
+    transition: opacity 0.3s ease;
+}
+
+.back-button:hover {
+    opacity: 0.8; /* Increased opacity on hover but not fully opaque */
+}
+
+.back-button a {
+    color: rgba(180, 180, 180, 0.6); /* Changed to a gray color */
+    transition: color 0.3s ease;
+}
+
+.back-button a:hover {
+    color: rgba(255, 255, 255, 0.8); /* Lighter on hover but not fully white */
+}
+
+/* Hidden link styles for main page */
+.hidden-playground-link {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: color 0.3s ease;
+    z-index: 1000;
+}
+
+.hidden-playground-link:hover {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Games Grid Layout */
+.games-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+    max-width: 900px;
+    margin: 4rem auto;
+    width: 80%;
+}
+
+/* Game Card Styles */
+.game-card {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(30, 30, 30, 0.9) 0%, rgba(50, 70, 100, 0.9) 100%);
+    border-radius: 15px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 1rem;
+}
+
+.game-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Game Icon */
+.game-icon {
+    flex: 0 0 128px;
+    height: 128px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+/* Game Info */
+.game-info {
+    flex: 1;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.game-info h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.3rem;
+    color: #ffffff;
+}
+
+.game-description {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0.5rem 0;
+    flex-grow: 1;
+}
+
+/* Game Meta Information */
+.game-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.deployment-date {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.play-button {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.play-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 640px) {
+    .games-grid {
+        width: 90%;
+        padding: 1rem;
+        margin: 2rem auto;
+    }
+
+    .game-card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .game-icon {
+        padding: 1rem 1rem 0 1rem;
+    }
+
+    .game-info {
+        padding: 1rem;
+    }
+}
+
+/* Game Container Styles */
+.game-container {
+    position: relative;
+    background: linear-gradient(135deg, rgba(30, 30, 30, 0.9) 0%, rgba(50, 70, 100, 0.9) 100%);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 80vmin; /* Use vmin to ensure it fits both width and height */
+    height: 80vmin; /* Make it square using the same value */
+    max-width: 80vh; /* Ensure it doesn't exceed 80% of viewport height */
+    max-height: 80vh;
+    margin: auto;
+    padding: 1rem; /* Padding for the card */
+    padding-bottom: 2rem; /* Adjusted padding at the bottom for the controls */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#gameCanvas {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.score-display {
+    position: absolute;
+    top: -2rem;
+    left: 1rem;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.game-over.hidden {
+    display: none;
+}
+
+#restartButton {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+#restartButton:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Controls Styles */
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    position: absolute; /* Position absolute to avoid affecting the container's borders */
+    bottom: 1rem; /* Position it at the bottom of the container */
+    left: 50%;
+    transform: translateX(-50%); /* Center the controls horizontally */
+}
+
+.horizontal-controls {
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem 0;
+}
+
+.control-button {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 0.2rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 60px; /* Set a fixed width for uniformity */
+    height: 60px; /* Set a fixed height for uniformity */
+}
+
+.control-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Adjust the layout of the controls */
+#upButton {
+    margin-bottom: 0.5rem; /* Add space between up and down buttons */
+}
+
+/* Back Button Container */
+.back-button-container {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    left: 10px; /* Adjust as needed */
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.8);
+    z-index: 10; /* Ensure it appears above other elements */
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* Remove underline from link */
+}
+
+.back-text {
+    margin-left: 0.5rem; /* Space between the icon and text */
+    font-size: 1rem; /* Adjust font size as needed */
 }

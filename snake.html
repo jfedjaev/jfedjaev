@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake - Juri's Playground</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="playground-body">
+    <canvas id="starfield"></canvas>
+    <div class="back-button">
+        <a href="playground.html" title="Back to Playground">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+        </a>
+    </div>
+    
+    <div class="game-container">
+        <div class="score-display">Score: <span id="score">0</span></div>
+        <canvas id="gameCanvas"></canvas>
+        <div class="game-over hidden">
+            <h2>Game Over!</h2>
+            <p>Final Score: <span id="finalScore">0</span></p>
+            <button id="restartButton">Play Again</button>
+        </div>
+        <div class="controls">
+            <button class="control-button" id="upButton">↑</button>
+            <div class="horizontal-controls">
+                <button class="control-button" id="leftButton">←</button>
+                <button class="control-button" id="downButton">↓</button>
+                <button class="control-button" id="rightButton">→</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="starfield.js"></script>
+    <script src="snake.js"></script>
+</body>
+</html> 

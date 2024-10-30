@@ -8,11 +8,33 @@ function initAudioControl() {
     // Try to load the last sound state from localStorage
     let isSoundOn = localStorage.getItem('gameSound') !== 'off';
     
+    // Function to safely play audio with error handling and user interaction check
+    async function playAudio() {
+        try {
+            // Check if browser requires user interaction
+            const playPromise = backgroundMusic.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.log('Autoplay prevented. Waiting for user interaction:', error);
+                    // Set up one-time click handler to start audio
+                    const startAudio = () => {
+                        backgroundMusic.play();
+                        document.removeEventListener('click', startAudio);
+                    };
+                    document.addEventListener('click', startAudio);
+                });
+            }
+        } catch (e) {
+            console.log('Audio play failed:', e);
+        }
+    }
+
     // Function to update sound state
     function updateSoundState(play) {
         isSoundOn = play;
         if (play) {
-            backgroundMusic.play().catch(e => console.log('Audio play failed:', e));
+            playAudio();
             soundOnIcon.style.display = 'block';
             soundOffIcon.style.display = 'none';
             localStorage.setItem('gameSound', 'on');
@@ -32,11 +54,32 @@ function initAudioControl() {
         updateSoundState(!isSoundOn);
     });
 
-    // Start playing when the page loads (if sound is on)
-    document.addEventListener('DOMContentLoaded', () => {
-        if (isSoundOn) {
-            backgroundMusic.play().catch(e => console.log('Audio play failed:', e));
+    // Try to start playing when the page loads (if sound is on)
+    if (isSoundOn) {
+        // Try immediate playback
+        playAudio();
+        
+        // Fallback: Try again after a short delay
+        setTimeout(() => {
+            if (backgroundMusic.paused && isSoundOn) {
+                playAudio();
+            }
+        }, 1000);
+    }
+
+    // Additional event listeners for various user interactions
+    const userInteractions = ['click', 'touchstart', 'keydown'];
+    const startAudioOnInteraction = () => {
+        if (isSoundOn && backgroundMusic.paused) {
+            playAudio();
         }
+        userInteractions.forEach(event => {
+            document.removeEventListener(event, startAudioOnInteraction);
+        });
+    };
+
+    userInteractions.forEach(event => {
+        document.addEventListener(event, startAudioOnInteraction);
     });
 }
 

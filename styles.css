@@ -550,3 +550,73 @@ footer {
         width: 70vw;
     }
 }
+
+/* Sound Toggle Button */
+.sound-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, rgba(30, 30, 30, 0.9) 0%, rgba(50, 70, 100, 0.9) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    padding: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sound-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    color: rgba(255, 255, 255, 1);
+}
+
+.sound-toggle svg {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.sound-toggle:hover svg {
+    transform: scale(1.1);
+}
+
+.sound-toggle .sound-on,
+.sound-toggle .sound-off {
+    position: absolute;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+    .sound-toggle {
+        bottom: 20px;  /* Keep consistent with desktop */
+        left: 20px;    /* Keep consistent with desktop */
+        width: 42px;   /* Slightly smaller on mobile */
+        height: 42px;  /* Slightly smaller on mobile */
+        /* Ensure it stays above all other elements */
+        z-index: 9999;
+    }
+
+    .sound-toggle svg {
+        width: 20px;   /* Slightly smaller icons on mobile */
+        height: 20px;
+    }
+}
+
+/* Very small screens */
+@media screen and (max-width: 320px) {
+    .sound-toggle {
+        bottom: 15px;  /* Slightly closer to edge on very small screens */
+        left: 15px;
+        width: 38px;   /* Even smaller on very small screens */
+        height: 38px;
+    }
+}
